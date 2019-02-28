@@ -1,0 +1,148 @@
+minesweeper
+boardhead
+flagcount
+reset button
+timer
+game
+row
+grid item
+
+
+ 
+
+
+ {/* <Board rows={this.state.rows} columns={this.state.columns} />> */}
+
+    app:
+
+    /*Beginner: 10mines
+class App extends Component {
+  state = {
+ height:8,
+ width: 8,
+ mines: 10,
+  }
+
+  componentDidMount() {
+    axios
+      .post('https://minesweeper-api.herokuapp.com/games', {
+        difficulty: 0
+      })
+      .then(resp => {
+        console.log({ resp })
+        this.setState({
+          game: resp.data.board,
+          gameId: resp.data.id
+        })
+      })
+  }
+
+  //TODO: add 2 params of which button was clicked
+  checkCell = (row,col) => {
+    axios
+      .post(
+        `https://minesweeper-api.herokuapp.com/games/${
+          this.state.gameId
+        }/check`,
+        {
+          row: {this.prop.row},
+          col: {this.prop.col}
+        }
+      )
+      .then(resp => {
+        console.log({ resp })
+      })
+  }
+
+  render() {
+    return (
+      <>
+        <section>
+          <table>
+            <caption>MINESWEEPER</caption>
+            <tbody>
+              {this.state.game.map(row => {
+                return (
+                  <tr>
+                    {row.map(col => {
+                      return (
+                        <td>
+                          <button
+                            className="button-section"
+                            onClick={this.checkCell}
+                            onCell={this.prop.row}{this.prop.col}
+                            
+                          />
+                        </td>
+                      )
+                    })}
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </section>
+      </>
+    )
+  }
+}
+
+
+Board Component
+
+// import React, { Component } from 'react'
+
+// class Board extends Component {
+//     constructor(props) {
+//         super(props);
+
+//         this.state = {
+//             rows: this.creatBoard(props);
+//         }
+//     }
+//   creatBoard = props => {
+//     let board = [];
+
+//     for (let i = 0; i < props.rows; i++) {
+//       board.push([])
+//       for (let j = 0; j < props.column; j++) {
+//         board[i].push({
+//           x: j,
+//           y: i,
+//           count: 0,
+//           isOpen: false,
+//           hasMine: false,
+//           hasFlag: false
+//         })
+//       }
+//     }
+//     console.log(board)
+//   }
+
+//   for(let i = 0; i < props.mines ;i++) {
+//     let randomRow = Math.floor(Math.random()*props.rows);
+//     let randomCol = Math.floor(Math.random()*props.columns);
+
+//     let cell = borad[randomRow][randomColumn]
+// }
+
+//   render() {
+//     return <div />
+//   }
+
+// export default Board
+
+
+
+  const cellItemShape = {
+        isRevealed: PropTypes.bool,
+        isMine: PropTypes.bool,
+        isFlagged: PropTypes.bool
+    }
+
+    Cell.propTypes = {
+        value: 
+        PropTypes.objectOf(PropTypes.shape(cellItemShape)),
+        onClick: PropTypes.func,
+        cMenu: PropTypes.func
+    }
