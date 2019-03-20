@@ -8,8 +8,10 @@ html {
 
 header {
   font-size: 3rem;
+  font-weight: 700;
   text-align: center;
-  padding: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(223, 224, 226, 0.699);
 }
 
 body {
@@ -19,6 +21,8 @@ body {
   align-items: center;
   justify-content: center;
   font-style: bold;
+  background-image: url(./image/wall.jpg);
+  background-size: 100%;
 }
 
 table {
